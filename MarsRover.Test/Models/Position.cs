@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using FluentAssertions;
+using Utils;
 using Xunit;
 
 namespace MarsRover.Test
@@ -12,8 +13,8 @@ namespace MarsRover.Test
         public void NoDuplicates_WhenDuplicatesTriedToBeAdded()
         {
             #region Arrange
-            var x = Utils.RandomExtensions.GetNextUint();
-            var y = Utils.RandomExtensions.GetNextUint();
+            var x = RandomExtensions.GetNextUint();
+            var y = RandomExtensions.GetNextUint();
             var p1 = new Models.Position(x, y);
             var p2 = new Models.Position(x, y);
             #endregion
@@ -33,8 +34,8 @@ namespace MarsRover.Test
         public void CreateCorrectPosition_WhenGivenCoordinates()
         {
             #region Arrange
-            var x = Utils.RandomExtensions.GetNextUint();
-            var y = Utils.RandomExtensions.GetNextUint();
+            var x = RandomExtensions.GetNextUint();
+            var y = RandomExtensions.GetNextUint();
             var expected = new Models.Position(x, y);
             #endregion
 
