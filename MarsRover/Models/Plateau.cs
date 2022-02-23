@@ -2,8 +2,8 @@ namespace MarsRover.Models
 {
     public class Plateau
     {
-        public readonly Queue<Rover> DeploymentQueue = new Queue<Rover>();
-        public readonly Rover[,] Map;
+        private readonly Queue<Rover> DeploymentQueue = new Queue<Rover>();
+        private readonly Rover[,] Map;
 
         public Plateau(uint x, uint y)
         {
@@ -27,5 +27,38 @@ namespace MarsRover.Models
             plateau = default;
             return false;
         }
+
+        public Rover DeployNext()
+        {
+            if (DeploymentQueue.TryDequeue(out var rover))
+            {
+                foreach (var pos in rover.GetQueuedToVisit())
+                {
+                    if
+                    (
+                        // Goes beyond plateau horizontally
+                        pos.X >= Map.GetLength(0)
+                        || pos.X < 0
+                        // Goes beyond plateau vertically
+                        || pos.Y >= Map.GetLength(1)
+                        || pos.Y < 0
+                        // There's at least a single coordinate already occupied
+                        || Map[pos.X, pos.Y] != null
+                    )
+                    {
+                        return default;
+                    }
+                }
+                rover.ApplyCommandQueue();
+                Map[rover.Position.X, rover.Position.Y] = rover;
+                return rover;
+            }
+            return default;
+        }
+
+        public void EnqueueToDeploy(Rover rover) => DeploymentQueue.Enqueue(rover);
+
+
+        public bool IsDeploymentQueueNotEmpty() => DeploymentQueue.Any();
     }
 }

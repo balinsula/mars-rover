@@ -13,8 +13,8 @@ namespace MarsRover.Test
         public void NoDuplicates_WhenDuplicatesTriedToBeAdded()
         {
             #region Arrange
-            var x = RandomExtensions.GetNextUint();
-            var y = RandomExtensions.GetNextUint();
+            var x = RandomExtensions.Random.Next();
+            var y = RandomExtensions.Random.Next();
             var p1 = new Models.Position(x, y);
             var p2 = new Models.Position(x, y);
             #endregion
@@ -34,8 +34,8 @@ namespace MarsRover.Test
         public void CreateCorrectPosition_WhenGivenCoordinates()
         {
             #region Arrange
-            var x = RandomExtensions.GetNextUint();
-            var y = RandomExtensions.GetNextUint();
+            var x = RandomExtensions.Random.Next();
+            var y = RandomExtensions.Random.Next();
             var expected = new Models.Position(x, y);
             #endregion
 

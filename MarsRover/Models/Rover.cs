@@ -32,8 +32,8 @@ namespace MarsRover.Models
             var pos = line?.Split(" ", maxLength);
             if (pos != null
                 && pos.Length == maxLength
-                && uint.TryParse(pos[0], out var x)
-                && uint.TryParse(pos[1], out var y)
+                && int.TryParse(pos[0], out var x)
+                && int.TryParse(pos[1], out var y)
                 && Enum.TryParse(pos[2], true, out Direction dir)
                 )
             {

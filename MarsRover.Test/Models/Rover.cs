@@ -24,8 +24,8 @@ namespace MarsRover.Test
 
             var rover = new Models.Rover(
                 new Models.Position(
-                    RandomExtensions.GetNextUint(),
-                    RandomExtensions.GetNextUint()),
+                    RandomExtensions.Random.Next(),
+                    RandomExtensions.Random.Next()),
                 RandomExtensions.GetRandom<Direction>());
             #endregion
 
@@ -43,8 +43,8 @@ namespace MarsRover.Test
         public void CreateCorrectRover_WhenTryParsed()
         {
             #region Arrange
-            var x = RandomExtensions.GetNextUint();
-            var y = RandomExtensions.GetNextUint();
+            var x = RandomExtensions.Random.Next();
+            var y = RandomExtensions.Random.Next();
             var d = RandomExtensions.GetRandom<Direction>();
             var expected = new Models.Rover(new Models.Position(x, y), d);
             #endregion
@@ -63,8 +63,8 @@ namespace MarsRover.Test
         public void CorrectString_WhenToString()
         {
             #region Arrange
-            var x = RandomExtensions.GetNextUint();
-            var y = RandomExtensions.GetNextUint();
+            var x = RandomExtensions.Random.Next();
+            var y = RandomExtensions.Random.Next();
             var d = RandomExtensions.GetRandom<Direction>();
             #endregion
 

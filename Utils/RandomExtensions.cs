@@ -7,7 +7,7 @@
         const int MaxNoOfUniformBitSize = 30;
         const int UintBitSize = 32;
         const int RemainderBitSize = UintBitSize - MaxNoOfUniformBitSize;
-        private static Random Random = new Random();
+        public static Random Random = new Random();
 
         public static uint GetNextUint()
         {
