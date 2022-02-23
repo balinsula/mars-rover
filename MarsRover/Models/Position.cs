@@ -2,9 +2,9 @@ namespace MarsRover.Models
 {
     public class Position
     {
-        public uint X { get; private set; }
-        public uint Y { get; private set; }
-        public Position(uint x, uint y)
+        public int X { get; private set; }
+        public int Y { get; private set; }
+        public Position(int x, int y)
         {
             X = x;
             Y = y;
@@ -16,8 +16,8 @@ namespace MarsRover.Models
             var pos = line?.Split(" ", maxLength);
             if (pos != null
                 && pos.Length == maxLength
-                && uint.TryParse(pos[0], out var x)
-                && uint.TryParse(pos[1], out var y)
+                && int.TryParse(pos[0], out var x)
+                && int.TryParse(pos[1], out var y)
                 )
             {
                 position = new Position(x, y);
@@ -30,7 +30,7 @@ namespace MarsRover.Models
 
         public Position GetNeighbour(Direction direction)
         {
-            const uint reach = 1;
+            const int reach = 1;
             var x = X;
             var y = Y;
             switch (direction)
