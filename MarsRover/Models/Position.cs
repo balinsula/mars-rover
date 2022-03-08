@@ -1,14 +1,7 @@
 namespace MarsRover.Models
 {
-    public readonly struct Position
+    public readonly record struct Position(int X, int Y)
     {
-        public int X { get; init; }
-        public int Y { get; init; }
-        public Position(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
 
         public static bool TryParse(string? line, out Position position)
         {
