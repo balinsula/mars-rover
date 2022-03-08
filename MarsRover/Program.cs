@@ -4,7 +4,7 @@ namespace MarsRover
 {
     public static class Program
     {
-        static async Task MainAsync()
+        static async Task Main()
         {
             var inputStream = Console.OpenStandardInput();
             var plateau = await ReadStreamAsync(inputStream);
