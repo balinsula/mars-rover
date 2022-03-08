@@ -1,9 +1,9 @@
 namespace MarsRover.Models
 {
-    public class Position
+    public readonly struct Position
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
+        public int X { get; init; }
+        public int Y { get; init; }
         public Position(int x, int y)
         {
             X = x;
@@ -51,18 +51,6 @@ namespace MarsRover.Models
                     break;
             }
             return new Position(x, y);
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is Position position &&
-                   X == position.X &&
-                   Y == position.Y;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(X, Y);
         }
     }
 }
